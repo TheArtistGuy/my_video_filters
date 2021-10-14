@@ -1,6 +1,6 @@
 import numpy as np
 
-def echo_with_alpha(img_list: []):
+def echo_with_alpha(img_list: [], repeats):
     new_image = np.zeros_like(img_list[0])
     for i, picture in enumerate(img_list):
         alpha = 0.5 * (i)
@@ -9,7 +9,7 @@ def echo_with_alpha(img_list: []):
         img = np.multiply(img, mask)
         new_image = np.add(new_image, img)
 
-    return new_image / 8000
+    return new_image / (4000 * repeats)
 
 
 def echo(img_list : []):

@@ -2,7 +2,10 @@ import cv2
 import numpy as np
 
 def picture_difference(img1, img2):
-    return  np.add(img1,np.multiply(img2, -1)) ** 2
+    matrix_dif = np.add(img1, np.multiply(img2, -1)) ** 2
+    threshold_indizes = matrix_dif < 40
+    matrix_dif[threshold_indizes] = 0
+    return  matrix_dif
 
 
 def gauss(img):
